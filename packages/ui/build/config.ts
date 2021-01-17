@@ -14,8 +14,9 @@ const path = require('path')
 
 require('dotenv').config()
 
-const result = {
+const config = {
   mode: 'production',
+  devtool: 'source-map',
   entry: {
     app: './src/main.ts',
   },
@@ -137,33 +138,36 @@ const result = {
     ],
   },
   optimization: {
-    minimizer: [
-      // new TerserPlugin({
-      //   cache: true,
-      //   parallel: true,
-      //   sourceMap: true,
-      // }),
-      new OptimizeCssAssetsPlugin({
-        assetNameRegExp: /\.css$/g,
-        cssProcessor: require('cssnano'),
-        cssProcessorOptions: {
-          discardComments: { removeAll: true },
-          postcssZindex: false,
-          reduceIdents: false,
-        },
-        canPrint: false,
-      }),
-
-      //       new webpack.BannerPlugin({
-//         banner: `/*!
-// * Vuestic v${version}
-// * Forged by John Leider
-// * Released under the MIT License.
-// */     `,
-//         raw: true,
-//         entryOnly: true,
+//     minimizer: [
+//       // new TerserPlugin({
+//       //   parallel: true,
+//       //   cache: true,
+//       //   sourceMap: true,
+//       //   // terserOptions: {
+//       //     // keep_fnames: true,
+//       //   // },
+//       // }),
+//       new OptimizeCssAssetsPlugin({
+//         assetNameRegExp: /\.css$/g,
+//         cssProcessor: require('cssnano'),
+//         cssProcessorOptions: {
+//           discardComments: { removeAll: true },
+//           postcssZindex: false,
+//           reduceIdents: false,
+//         },
+//         canPrint: false,
 //       }),
-    ],
+//
+//       //       new webpack.BannerPlugin({
+// //         banner: `/*!
+// // * Vuestic v${version}
+// // * Forged by John Leider
+// // * Released under the MIT License.
+// // */     `,
+// //         raw: true,
+// //         entryOnly: true,
+// //       }),
+//     ],
   },
   stats: { children: false },
 } as Configuration
@@ -174,6 +178,6 @@ Object.defineProperty(RegExp.prototype, 'toJSON', {
   value: RegExp.prototype.toString,
 })
 
-console.log('result', JSON.stringify(result, null, 2))
+console.log('config', JSON.stringify(config, null, 2))
 
-module.exports = result
+module.exports = config

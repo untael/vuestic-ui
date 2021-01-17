@@ -4,7 +4,7 @@ import VaColorPalette from '../VaColorPalette.vue'
 
 describe('VaColorPalette', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaColorPalette)
+    const wrapper: any = mount(VaColorPalette as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

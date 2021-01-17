@@ -3,7 +3,7 @@ import VaButtonToggle from '../VaButtonToggle.vue'
 
 describe('VaButtonToggle', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaButtonToggle)
+    const wrapper: any = mount(VaButtonToggle as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

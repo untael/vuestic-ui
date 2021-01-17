@@ -1,29 +1,27 @@
 import { shallowMount } from '@vue/test-utils'
 import { SelectableMixin } from './SelectableMixin'
-import { StatefulMixin } from '../StatefulMixin/StatefulMixin'
-import Component, { mixins } from 'vue-class-component'
 import { testHasColorThemeMixin } from '../../../services/testHasColorThemeMixin'
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
+import { h } from 'vue'
 
-// TODO Should probably have better typing. A  bit rushed.
-@Component
-export default class ExampleComponent extends mixins(SelectableMixin, StatefulMixin) {
+const ExampleComponent = {
+  mixins: [SelectableMixin],
   render () {
-    return ''
-  }
+    return h('')
+  },
 }
 
 describe('SelectableMixin', () => {
   describe('isChecked', () => {
     it('true and false', async () => {
-      const wrapper = shallowMount(ExampleComponent)
+      const wrapper: any = shallowMount(ExampleComponent as any)
       expect(wrapper.vm.isChecked).toBe(false)
       wrapper.setProps({ value: true })
       expect(wrapper.vm.isChecked).toBe(true)
     })
     it('with preset values', async () => {
-      const wrapper = shallowMount(
-        ExampleComponent,
+      const wrapper: any = shallowMount(
+        ExampleComponent as any,
         // Swap true and false.
         { propsData: { value: true, trueValue: false, falseValue: true } },
       )
@@ -32,8 +30,8 @@ describe('SelectableMixin', () => {
       expect(wrapper.vm.isChecked).toBe(true)
     })
     it('with indeterminate', async () => {
-      const wrapper = shallowMount(
-        ExampleComponent,
+      const wrapper: any = shallowMount(
+        ExampleComponent as any,
         { propsData: { value: null, indeterminate: true } },
       )
       expect(wrapper.vm.isChecked).toBe(false)

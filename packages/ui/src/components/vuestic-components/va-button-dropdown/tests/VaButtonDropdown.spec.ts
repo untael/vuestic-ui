@@ -4,7 +4,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaButtonDropdown', () => {
   // it('should render without an error', () => {
-  //   const wrapper = mount(VaButtonDropdown)
+  //   const wrapper: any = mount(VaButtonDropdown)
   //   expect(wrapper.isVueInstance()).toBeTruthy()
   // })
   it('has ColorThemeMixin', () => {

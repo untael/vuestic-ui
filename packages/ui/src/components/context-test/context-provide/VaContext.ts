@@ -15,7 +15,7 @@ export default class VaContext extends Vue {
   @Prop({ type: Object, default: () => ({}) }) config: any
 
   @Inject({
-    from: [ContextProviderKey],
+    from: ContextProviderKey,
     default: () => [],
   }) readonly _$configs!: any
 

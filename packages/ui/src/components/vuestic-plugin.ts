@@ -180,7 +180,8 @@ export const VuesticPlugin = {
       VaDivider,
       VaOptionList,
       VaInfiniteScroll,
-    ].forEach(component => {
+      //ToDo should be fixed to normal type
+    ].forEach((component: any) => {
       app.component(component.name, component)
     })
 

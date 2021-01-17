@@ -5,7 +5,7 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 
 describe('VaDivider', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaDivider)
+    const wrapper: any = mount(VaDivider as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('should throw if prop tag does not exist in the context', () => {

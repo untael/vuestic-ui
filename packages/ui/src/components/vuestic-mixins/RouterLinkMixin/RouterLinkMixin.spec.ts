@@ -1,13 +1,17 @@
+//@ts-nocheck
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import { RouterLinkMixin } from './RouterLinkMixin'
-import Component, { mixins } from 'vue-class-component'
 import VueRouter from 'vue-router'
+import { h } from 'vue'
 
-@Component
-export default class ExampleComponent extends mixins(RouterLinkMixin) {
+const ExampleComponent = {
+  mixins: [RouterLinkMixin],
   render () {
-    return ''
-  }
+    return h('')
+  },
+  props: {
+    value: {},
+  },
 }
 
 const stringProps = ['to', 'activeClass', 'exactActiveClass']
@@ -16,16 +20,16 @@ const booleanProps = ['replace', 'append', 'exact']
 describe('RouterLinkMixin', () => {
   it('hasRouterLinkParams works correctly', () => {
     stringProps.forEach(prop => {
-      const wrapper = shallowMount(ExampleComponent)
+      const wrapper: any = shallowMount(ExampleComponent as any)
       wrapper.setProps({ [prop]: prop })
       expect(wrapper.vm.hasRouterLinkParams).toBeTruthy()
     })
     booleanProps.forEach(prop => {
-      const wrapper = shallowMount(ExampleComponent)
+      const wrapper: any = shallowMount(ExampleComponent as any)
       wrapper.setProps({ [prop]: true })
       expect(wrapper.vm.hasRouterLinkParams).toBeTruthy()
     })
-    const wrapper = shallowMount(ExampleComponent)
+    const wrapper: any = shallowMount(ExampleComponent as any)
     expect(wrapper.vm.hasRouterLinkParams).toBeFalsy()
   })
   it('isActiveRouterLink works correctly', () => {
@@ -34,10 +38,17 @@ describe('RouterLinkMixin', () => {
     const router = new VueRouter({ routes: [{ path: '/active' }, { path: '/passive' }] })
     router.push('/active')
 
-    const emptyWrapper = shallowMount(ExampleComponent)
+    const emptyWrapper = shallowMount(ExampleComponent as any, {
+      global: {
+        plugins: [VueRouter as any],
+      },
+    })
     expect(emptyWrapper.vm.isActiveRouterLink).toBeFalsy()
 
-    const wrapperWithProps = shallowMount(ExampleComponent, { router, localVue })
+    const wrapperWithProps = shallowMount(ExampleComponent, {
+      router,
+      localVue,
+    })
     wrapperWithProps.setProps({ to: '/active' })
     expect(wrapperWithProps.vm.isActiveRouterLink).toBeTruthy()
 

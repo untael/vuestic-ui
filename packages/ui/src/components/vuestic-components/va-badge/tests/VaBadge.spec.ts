@@ -5,7 +5,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaBadge', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaBadge)
+    const wrapper: any = mount(VaBadge as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {

@@ -6,7 +6,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaAvatar', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaAvatar)
+    const wrapper: any = mount(VaAvatar as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('has loading mixin', () => {

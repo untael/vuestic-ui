@@ -6,7 +6,7 @@ import VaSlider from '../VaSlider.vue'
 
 describe('VaSlider', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaSlider)
+    const wrapper: any = mount(VaSlider as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {

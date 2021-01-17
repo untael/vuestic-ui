@@ -5,7 +5,7 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 
 describe('VaListItemSection', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaListItemSection)
+    const wrapper: any = mount(VaListItemSection as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
@@ -18,7 +18,7 @@ describe('VaListItemSection', () => {
   })
 
   it('should have main class', () => {
-    const wrapper = shallowMount(VaListItemSection)
+    const wrapper: any = shallowMount(VaListItemSection as any)
     expect(wrapper.classes()).toContain('va-list-item-section--main')
     expect(wrapper.classes()).not.toContain('va-list-item-section--avatar')
     expect(wrapper.classes()).not.toContain('va-list-item-section--icon')

@@ -6,7 +6,7 @@ import { testIsLoadingMixin } from '../../vuestic-mixins/LoadingMixin/testIsLoad
 jest.mock('vuetable-2/src/components/Vuetable', () => jest.fn())
 describe('VaDataTable', () => {
   it('should properly sort numeric values', () => {
-    const wrapper = shallowMount(VaDataTable, {
+    const wrapper: any =  shallowMount(VaDataTable as any, {
       propsData: {
         data: [{ num: 1 }, { num: 10 }, { num: 3 }, { num: 2 }, { num: 13 }, { num: 4 }],
         fields: ['num'],
@@ -20,7 +20,7 @@ describe('VaDataTable', () => {
   })
 
   it('should properly sort alphanumeric values', () => {
-    const wrapper = shallowMount(VaDataTable, {
+    const wrapper: any =  shallowMount(VaDataTable as any, {
       propsData: {
         data: [{ alnum: '0' }, { alnum: 'b11' }, { alnum: 'a1' }, { alnum: 'a3' }, { alnum: 'b2' }, { alnum: 'a4' }],
         fields: ['alnum'],

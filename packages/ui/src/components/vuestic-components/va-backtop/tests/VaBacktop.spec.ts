@@ -5,7 +5,7 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 
 describe('VaBacktop', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaBacktop)
+    const wrapper: any = mount(VaBacktop as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('is contextable', () => {

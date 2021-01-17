@@ -6,19 +6,20 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 import VaListItem from '../VaListItem.vue'
 import { RouterLinkMixin } from '../../../vuestic-mixins/RouterLinkMixin/RouterLinkMixin'
 import { KeyboardOnlyFocusMixin } from '../../../vuestic-mixins/KeyboardOnlyFocusMixin/KeyboardOnlyFocusMixin'
+import VaAccordion from '../../va-accordion/VaAccordion.vue'
 
 describe('VaListItem', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaListItem)
+    const wrapper: any = mount(VaListItem as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('should be a link', () => {
-    const wrapper = shallowMount(VaListItem, {
+    const wrapper: any =  shallowMount(VaListItem as any, {
       propsData: {
         href: '/',
       },
     })
-    expect(wrapper.is('a')).toBe(true)
+    expect(wrapper.find('a').exists()).toBe(true)
   })
   it('has RouterLinkMixin', () => {
     expect(() =>
@@ -41,14 +42,14 @@ describe('VaListItem', () => {
   })
 
   it('should have disabled class', () => {
-    const wrapper = shallowMount(VaListItem, {
+    const wrapper: any =  shallowMount(VaListItem as any, {
       propsData: { disabled: true },
     })
     expect(wrapper.classes()).toContain('va-list-item--disabled')
   })
 
   it('should emit `focus` event', async () => {
-    const wrapper: any = shallowMount(VaListItem)
+    const wrapper: any = shallowMount(VaListItem as any)
 
     await wrapper.vm.onFocus()
 

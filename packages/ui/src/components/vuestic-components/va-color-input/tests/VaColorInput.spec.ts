@@ -4,7 +4,7 @@ import VaColorInput from '../VaColorInput.vue'
 
 describe('VaColorInput', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaColorInput)
+    const wrapper: any = mount(VaColorInput as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

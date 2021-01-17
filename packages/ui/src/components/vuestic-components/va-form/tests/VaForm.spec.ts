@@ -3,7 +3,7 @@ import VaForm from '../VaForm.vue'
 
 describe('VaForm', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaForm)
+    const wrapper: any = mount(VaForm as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

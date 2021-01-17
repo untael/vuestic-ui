@@ -5,7 +5,7 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 
 describe('VaListItemLabel', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaListItemLabel)
+    const wrapper: any = mount(VaListItemLabel as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
@@ -18,7 +18,7 @@ describe('VaListItemLabel', () => {
   })
 
   it('should have caption class', () => {
-    const wrapper = shallowMount(VaListItemLabel, {
+    const wrapper: any =  shallowMount(VaListItemLabel as any, {
       propsData: { caption: true },
     })
     expect(wrapper.classes()).toContain('va-list-item-label--caption')

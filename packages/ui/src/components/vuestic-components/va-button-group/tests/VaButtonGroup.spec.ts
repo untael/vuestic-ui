@@ -4,7 +4,7 @@ import VaButtonGroup from '../VaButtonGroup.vue'
 
 describe('VaButtonGroup', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaButtonGroup)
+    const wrapper: any = mount(VaButtonGroup as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

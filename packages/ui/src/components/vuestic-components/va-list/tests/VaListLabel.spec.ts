@@ -5,7 +5,7 @@ import { testHasColorThemeMixin } from '../../../../services/testHasColorThemeMi
 import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaListLabel', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaListLabel)
+    const wrapper: any = mount(VaListLabel as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 

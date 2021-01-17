@@ -4,7 +4,7 @@ import VaListSeparator from '../VaListSeparator.vue'
 import { testIsContextableComponent } from '../../../context-test/context-provide/testIsContextableComponent'
 describe('VaListSeparator', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaListSeparator)
+    const wrapper: any = mount(VaListSeparator as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
@@ -17,7 +17,7 @@ describe('VaListSeparator', () => {
   })
 
   it('should have offset class', () => {
-    const wrapper = shallowMount(VaListSeparator, {
+    const wrapper: any =  shallowMount(VaListSeparator as any, {
       propsData: {
         fit: false,
       },

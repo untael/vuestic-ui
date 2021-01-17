@@ -1,9 +1,9 @@
-import { CreateElement } from 'vue'
+import { h } from 'vue'
 import { shallowMount } from '@vue/test-utils'
 import ClickOutsideMixin, { ClickOutsideOptions } from '../ClickOutsideMixin'
 
 describe('ClickOutsideMixin', () => {
-  const Component = (h: CreateElement) =>
+  const Component = () =>
     h('div', {
       ref: 'clickOutsideRef',
     })
@@ -42,7 +42,7 @@ describe('ClickOutsideMixin', () => {
   })
 
   it('should not be called when clicking inside', () => {
-    const wrapper = mountComponentWithOptions(options)
+    const wrapper: any = mountComponentWithOptions(options)
 
     wrapper.find('div').trigger('click', { button: 0 })
 

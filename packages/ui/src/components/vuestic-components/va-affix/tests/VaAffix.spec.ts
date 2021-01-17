@@ -24,8 +24,8 @@ describe('VaAffix', () => {
   })
 
   it('should render without an error', () => {
-    const wrapper = mount(VaAffix)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    const wrapper: any = mount(VaAffix as any)
+    expect(wrapper.findComponent('VaAffix')).toBeTruthy()
   })
   it('should throw if prop tag does not exist in the context', () => {
     const props = {

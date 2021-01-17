@@ -6,7 +6,7 @@ import VaOptionList from '../VaOptionList.vue'
 
 describe('VaOptionList', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaOptionList)
+    const wrapper: any = mount(VaOptionList as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('is SelectableList component', () => {
@@ -37,7 +37,7 @@ describe('VaOptionList', () => {
 
   describe('selectedValue should use value if provided', () => {
     it('should update selectedValue', () => {
-      const wrapper = shallowMount(VaOptionList)
+      const wrapper: any =  shallowMount(VaOptionList as any)
       wrapper.setProps({ value: 'three' })
       expect(wrapper.vm.selectedValue).toBe('three')
     })

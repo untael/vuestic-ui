@@ -6,7 +6,7 @@ import VaAlert from '../VaAlert.vue'
 
 describe('VaAlert', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaAlert)
+    const wrapper: any = mount(VaAlert as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 

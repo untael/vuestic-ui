@@ -10,23 +10,23 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaRating', () => {
   // it('should render without an error', () => {
-  //   const wrapper = mount(VaRating)
+  //   const wrapper: any = mount(VaRating)
   //   expect(wrapper.isVueInstance()).toBeTruthy()
   // })
   it('default', () => {
-    const wrapper = shallowMount(VaRating)
+    const wrapper: any =  shallowMount(VaRating as any)
     expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('custom length', () => {
-    const wrapper = shallowMount(VaRating, {
+    const wrapper: any =  shallowMount(VaRating as any, {
       propsData: { max: 3 },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('numbers', () => {
-    const wrapper = shallowMount(VaRating, {
+    const wrapper: any =  shallowMount(VaRating as any, {
       propsData: { numbers: true },
     })
     expect(wrapper.html()).toMatchSnapshot()

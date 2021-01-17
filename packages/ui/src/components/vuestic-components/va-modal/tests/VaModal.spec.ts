@@ -83,7 +83,7 @@ describe('VaModal', () => {
         slots: {
           default: [`<div class="${testClass}" />`],
         },
-      })
+      } as any)
     }
 
     describe('show()', () => {

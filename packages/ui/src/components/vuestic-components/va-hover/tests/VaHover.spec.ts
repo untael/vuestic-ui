@@ -3,7 +3,7 @@ import VaHover from '../VaHover.vue'
 
 describe('VaHover', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaHover)
+    const wrapper: any = mount(VaHover as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

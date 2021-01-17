@@ -1,20 +1,21 @@
 import { shallowMount } from '@vue/test-utils'
 import { FormComponentMixin } from './FormComponentMixin'
 import { sleep } from '../../../services/utils'
-import { Component, Mixins, Prop } from 'vue-property-decorator'
+import { h } from 'vue'
 
-@Component
-export default class ExampleComponent extends Mixins(FormComponentMixin) {
+const ExampleComponent = {
+  mixins: [FormComponentMixin],
   render () {
-    return ''
-  }
-
-  @Prop({ }) value: any
+    return h('')
+  },
+  props: {
+    value: {},
+  },
 }
 
 describe('FormElementMixin', () => {
   it('sets selfValidatesOnBlur on first interaction', async () => {
-    const wrapper = shallowMount(ExampleComponent)
+    const wrapper: any = shallowMount(ExampleComponent as any)
     expect(wrapper.vm.shouldValidateOnBlur).toBe(false)
     wrapper.vm.isFocused = true
     await sleep() // Waiting for watcher to trigger.

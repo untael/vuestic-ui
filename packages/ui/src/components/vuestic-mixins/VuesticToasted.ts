@@ -9,11 +9,12 @@ const toastOptions = {
   duration: 2500,
 }
 
+//@ts-ignore
 Vue.use(Toasted, toastOptions)
 
 export default {
   methods: {
-    showToast (msg: string, options: object) {
+    showToast (msg: string, options: any) {
       (this as any).$toasted.show(msg, options)
     },
   },

@@ -5,7 +5,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaIcon', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaIcon)
+    const wrapper: any = mount(VaIcon as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {

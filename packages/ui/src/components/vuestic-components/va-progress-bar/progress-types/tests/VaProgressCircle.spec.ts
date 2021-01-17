@@ -6,7 +6,7 @@ import { ColorThemeMixin } from '../../../../../services/ColorThemePlugin'
 
 describe('VaProgressCircle', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaProgressCircle)
+    const wrapper: any = mount(VaProgressCircle as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 

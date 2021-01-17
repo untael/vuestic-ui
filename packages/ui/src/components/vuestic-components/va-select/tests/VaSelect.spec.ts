@@ -1,4 +1,4 @@
-import { createWrapper, mount, shallowMount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 import VaSelect from '../VaSelect.vue'
 import { testIsContextableComponent } from '../../../context-test/context-provide/testIsContextableComponent'
 import { testHasColorThemeMixin } from '../../../../services/testHasColorThemeMixin'
@@ -10,7 +10,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaSelect', () => {
   // ToDO: Fix after context will work fine
   // it('should render without an error', () => {
-  //   const wrapper = mount(VaSelect)
+  //   const wrapper: any = mount(VaSelect)
   //   expect(wrapper.isVueInstance()).toBeTruthy()
   // })
 })
@@ -52,7 +52,7 @@ describe('contextable mixin', () => {
   // })
 
   it('reset() should clear value on single select', async () => {
-    const wrapper: any = shallowMount(VaSelect, {
+    const wrapper: any = shallowMount(VaSelect as any, {
       propsData: {
         value: 'test',
       },
@@ -63,7 +63,7 @@ describe('contextable mixin', () => {
   })
 
   it('reset() should clear value on multiple select', async () => {
-    const wrapper: any = shallowMount(VaSelect, {
+    const wrapper: any = shallowMount(VaSelect as any, {
       propsData: {
         value: ['test'],
         multiple: true,
@@ -76,7 +76,7 @@ describe('contextable mixin', () => {
 
   it('reset() should clear value by clearValue prop', async () => {
     const newClearValue = 'new clear value'
-    const wrapper: any = shallowMount(VaSelect, {
+    const wrapper: any = shallowMount(VaSelect as any, {
       propsData: {
         value: 'test',
         clearValue: newClearValue,

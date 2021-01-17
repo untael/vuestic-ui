@@ -1,19 +1,17 @@
 import { shallowMount } from '@vue/test-utils'
 import { StatefulMixin } from './StatefulMixin'
-import Component, { mixins } from 'vue-class-component'
+import { h } from 'vue'
 
-// TODO Should probably have better typing. A bit rushed.
-@Component
-export default class ExampleComponent extends mixins(StatefulMixin) {
+const ExampleComponent = {
+  mixins: [StatefulMixin],
   render () {
-    return ''
-  }
+    return h('')
+  },
 }
-
 describe('StatefulMixin', () => {
   it('stateless', async () => {
-    const wrapper = shallowMount(
-      ExampleComponent,
+    const wrapper: any = shallowMount(
+      ExampleComponent as any,
       { propsData: { value: 'one' } } as any,
     )
     expect(wrapper.vm.valueComputed).toBe('one')
@@ -25,8 +23,8 @@ describe('StatefulMixin', () => {
     expect(wrapper.vm.valueComputed).toBe('three')
   })
   it('stateful', async () => {
-    const wrapper = shallowMount(
-      ExampleComponent,
+    const wrapper: any = shallowMount(
+      ExampleComponent as any,
       {
         propsData: { stateful: true },
       } as any,

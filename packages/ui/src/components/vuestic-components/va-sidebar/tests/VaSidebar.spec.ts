@@ -7,7 +7,7 @@ import VaSidebar from '../VaSidebar.vue'
 
 describe('VaSidebar', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaSidebar)
+    const wrapper: any = mount(VaSidebar as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {

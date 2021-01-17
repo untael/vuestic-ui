@@ -8,17 +8,17 @@ import { testIsLoadingMixin } from '../../../vuestic-mixins/LoadingMixin/testIsL
 
 describe('VaSwitch', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaSwitch)
+    const wrapper: any = mount(VaSwitch as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('default', () => {
-    const wrapper = shallowMount(VaSwitch, {
+    const wrapper: any =  shallowMount(VaSwitch as any, {
       propsData: { value: false },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
   it('true value', () => {
-    const wrapper = shallowMount(VaSwitch, {
+    const wrapper: any =  shallowMount(VaSwitch as any, {
       propsData: { value: true },
     })
     expect(wrapper.html()).toMatchSnapshot()

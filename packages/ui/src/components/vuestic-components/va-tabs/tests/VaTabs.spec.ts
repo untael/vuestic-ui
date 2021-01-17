@@ -6,7 +6,7 @@ import VaTabs from '../VaTabs.vue'
 
 describe('VaTabs', () => {
   // it('should render without an error', () => {
-  //   const wrapper = mount(VaTabs)
+  //   const wrapper: any = mount(VaTabs)
   //   expect(wrapper.isVueInstance()).toBeTruthy()
   // })
   it('has ColorThemeMixin', () => {

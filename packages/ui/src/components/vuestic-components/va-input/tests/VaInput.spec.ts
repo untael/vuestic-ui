@@ -7,7 +7,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaInput', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaInput)
+    const wrapper: any = mount(VaInput as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('is FormElement', () => {

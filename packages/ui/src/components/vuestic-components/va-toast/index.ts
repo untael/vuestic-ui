@@ -1,12 +1,11 @@
 import VaToast from './VaToast.vue'
 import { NotificationOptions } from './types'
 import { VNode } from 'vue'
-import { Constructor } from 'vue-property-decorator'
 
 const Z_INDEX = 100
 let seed = 1
 
-const NotificationConstructor: Constructor = VaToast
+const NotificationConstructor: any = VaToast
 let toastInstances: any[] = []
 let toastInstance: any
 

@@ -4,7 +4,7 @@ import VaColorSlider from '../VaColorSlider.vue'
 
 describe('VaColorSlider', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaColorSlider)
+    const wrapper: any = mount(VaColorSlider as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })

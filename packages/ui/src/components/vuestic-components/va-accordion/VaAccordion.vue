@@ -1,6 +1,6 @@
 <template>
   <div class="va-accordion">
-    <slot />
+    <slot/>
   </div>
 </template>
 
@@ -26,16 +26,16 @@ export default class VaAccordion extends Mixins(
   StatefulMixin,
   PropsMixin,
 ) {
-  collapses: any[] = []
+  collapses: (any)[] = []
   @Provide() accordion = {
-    onChildChange: (child: VaCollapse) => this.onChildChange(child),
-    onChildMounted: (child: VaCollapse) => this.onChildMounted(child),
-    onChildUnmounted: (child: VaCollapse) => this.onChildUnmounted(child),
+    onChildChange: (child: any) => this.onChildChange(child),
+    onChildMounted: (child: any) => this.onChildMounted(child),
+    onChildUnmounted: (child: any) => this.onChildUnmounted(child),
   }
 
-  onChildChange (child: VaCollapse) {
+  onChildChange (child: any) {
     const emitValue: any = []
-    this.collapses.forEach((collapse: VaCollapse) => {
+    this.collapses.forEach((collapse) => {
       if (collapse === child) {
         emitValue.push(collapse.valueProxy)
         return
@@ -48,22 +48,22 @@ export default class VaAccordion extends Mixins(
     this.valueComputed = emitValue
   }
 
-  onChildMounted (collapse: VaCollapse) {
+  onChildMounted (collapse: any) {
     this.collapses.push(collapse)
   }
 
-  onChildUnmounted (removableCollapse: VaCollapse) {
+  onChildUnmounted (removableCollapse: any) {
     this.collapses = this.collapses.filter(collapse => collapse !== removableCollapse)
   }
 
   mounted () {
-    this.collapses.forEach((collapse: VaCollapse, index: number) => {
+    this.collapses.forEach((collapse, index: number) => {
       collapse.valueProxy = this.valueComputed[index]
     })
   }
 
   updated () {
-    this.collapses.forEach((collapse: VaCollapse, index: number) => {
+    this.collapses.forEach((collapse, index: number) => {
       collapse.valueProxy = this.valueComputed[index]
     })
   }

@@ -6,7 +6,7 @@ import VaRadio from '../VaRadio.vue'
 
 describe('VaRadio', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaRadio)
+    const wrapper: any = mount(VaRadio as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {

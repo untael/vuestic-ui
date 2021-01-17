@@ -13,8 +13,8 @@ import VaAccordion from '../VaAccordion.vue'
 
 describe('VaAccordion', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaAccordion)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    const wrapper: any = (mount(VaAccordion) as any)
+    expect(wrapper.findComponent({ name: 'VaAccordion' })).toBeTruthy()
   })
   it('has StatefulMixin', () => {
     expect(() =>
@@ -33,7 +33,7 @@ describe('VaAccordion', () => {
   })
 
   it('should emit `input`', async () => {
-    const wrapper: any = shallowMount(VaAccordion)
+    const wrapper: any = shallowMount(VaAccordion as any)
     await wrapper.vm.onChildChange()
     expect(wrapper.emitted().input.length).toBe(1)
   })

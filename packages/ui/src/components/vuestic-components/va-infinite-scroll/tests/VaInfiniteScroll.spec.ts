@@ -15,7 +15,7 @@ Vue.use(ContextPlugin, {})
 
 describe('VaInfiniteScroll', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaInfiniteScroll)
+    const wrapper: any = mount(VaInfiniteScroll as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('is contextable', () => {
@@ -31,7 +31,7 @@ describe('VaInfiniteScroll', () => {
   })
 
   it('default snapshot', () => {
-    const wrapper = shallowMount(VaInfiniteScroll)
+    const wrapper: any =  shallowMount(VaInfiniteScroll as any)
     expect(wrapper.html()).toMatchSnapshot()
   })
 })

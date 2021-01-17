@@ -5,7 +5,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaBreadcrumbs', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaBreadcrumbs)
+    const wrapper: any = mount(VaBreadcrumbs as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {

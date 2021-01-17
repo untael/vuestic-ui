@@ -1,17 +1,16 @@
 import { shallowMount } from '@vue/test-utils'
 import { isCssColor, getColor, ColorThemeMixin } from './ColorThemePlugin'
-import Component, { mixins } from 'vue-class-component'
+import { h } from 'vue'
 
-// TODO Should probably have better typing. A bit rushed.
-@Component
-export default class ExampleComponent extends mixins(ColorThemeMixin) {
+const ExampleComponent = {
+  mixins: [ColorThemeMixin],
   render () {
-    return ''
-  }
+    return h('')
+  },
 }
 
 describe('ColorThemePlugin', () => {
-  const wrapper: any = shallowMount(ExampleComponent)
+  const wrapper: any = shallowMount(ExampleComponent as any)
   it('isCssColor', () => {
     expect(isCssColor('tomato')).toBe(true)
     expect(isCssColor('#123')).toBe(true)
@@ -26,8 +25,8 @@ describe('ColorThemePlugin', () => {
   })
 
   it('should compute color', async () => {
-    const wrapper = shallowMount(
-      ExampleComponent,
+    const wrapper: any = shallowMount(
+      ExampleComponent as any,
       {
         propsData: { color: '' },
       } as any,

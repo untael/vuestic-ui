@@ -4,7 +4,7 @@ import VaImage from '../VaImage.vue'
 
 describe('VaImage', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaImage)
+    const wrapper: any = mount(VaImage as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('is contextable', () => {

@@ -20,7 +20,7 @@ describe('SelectableListMixin', () => {
 
   describe('getValue', () => {
     it('should work with a string', () => {
-      const wrapper = prepareWrapper({ valueBy: 'testValue' })
+      const wrapper: any =  prepareWrapper({ valueBy: 'testValue' })
       const expectedValue = 'VALUE'
       const actualValue = wrapper.vm.getValue({ testValue: expectedValue })
 
@@ -28,7 +28,7 @@ describe('SelectableListMixin', () => {
     })
 
     it('should work with a nested props', () => {
-      const wrapper = prepareWrapper({ valueBy: 'test.value.test' })
+      const wrapper: any =  prepareWrapper({ valueBy: 'test.value.test' })
       const expectedValue = 'VALUE'
       const actualValue = wrapper.vm.getValue({
         test: {
@@ -42,7 +42,7 @@ describe('SelectableListMixin', () => {
     })
 
     it('should work with a function', () => {
-      const wrapper = prepareWrapper({ valueBy: opt => opt.test })
+      const wrapper: any =  prepareWrapper({ valueBy: opt => opt.test })
       const expectedValue = 'VALUE'
       const actualValue = wrapper.vm.getValue({ test: expectedValue })
 
@@ -52,7 +52,7 @@ describe('SelectableListMixin', () => {
 
   describe('getText', () => {
     it('should work with a string', () => {
-      const wrapper = prepareWrapper({ textBy: 'testValue' })
+      const wrapper: any =  prepareWrapper({ textBy: 'testValue' })
       const expectedValue = 'VALUE'
       const actualValue = wrapper.vm.getText({ testValue: expectedValue })
 
@@ -60,7 +60,7 @@ describe('SelectableListMixin', () => {
     })
 
     it('should work with a nested props', () => {
-      const wrapper = prepareWrapper({ textBy: 'test.value.test' })
+      const wrapper: any =  prepareWrapper({ textBy: 'test.value.test' })
       const expectedValue = 'VALUE'
       const actualValue = wrapper.vm.getText({
         test: {
@@ -74,7 +74,7 @@ describe('SelectableListMixin', () => {
     })
 
     it('should work with a function', () => {
-      const wrapper = prepareWrapper({ textBy: opt => opt.test })
+      const wrapper: any =  prepareWrapper({ textBy: opt => opt.test })
       const expectedValue = 'VALUE'
       const actualValue = wrapper.vm.getText({ test: expectedValue })
 

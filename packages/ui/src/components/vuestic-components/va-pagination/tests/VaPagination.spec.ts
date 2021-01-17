@@ -5,7 +5,7 @@ import { testHasColorThemeMixin } from '../../../../services/testHasColorThemeMi
 import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaPagination', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaPagination)
+    const wrapper: any = mount(VaPagination as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 

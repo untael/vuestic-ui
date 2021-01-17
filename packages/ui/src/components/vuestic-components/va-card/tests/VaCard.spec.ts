@@ -7,7 +7,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaCard', () => {
   it('should render without an error', () => {
-    const wrapper = mount(VaCard)
+    const wrapper: any = mount(VaCard as any)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('is contextable', () => {

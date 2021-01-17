@@ -12,8 +12,8 @@ import VaCollapse from '../VaCollapse.vue'
 
 describe('VaCollapse', () => {
   it('should render without an error', () => {
-  // -------------- Troxubles with an icon context ------------------
-    // const wrapper = mount(VaCollapse)
+    // -------------- Troxubles with an icon context ------------------
+    // const wrapper: any = mount(VaCollapse)
     // expect(wrapper.isVueInstance()).toBeTruthy()
   })
   it('has StatefulMixin', () => {
@@ -48,7 +48,7 @@ describe('VaCollapse', () => {
   // })
 
   it('should have disabled class', () => {
-    const wrapper = shallowMount(VaCollapse, {
+    const wrapper: any = shallowMount(VaCollapse as any, {
       propsData: {
         value: true,
         disabled: true,
@@ -69,19 +69,19 @@ describe('VaCollapse', () => {
   })
 
   it('should emit `input`', async () => {
-    const wrapper: any = shallowMount(VaCollapse)
+    const wrapper: any = shallowMount(VaCollapse as any)
     await wrapper.vm.changeValue()
     expect(wrapper.emitted().input.length).toBe(1)
   })
 
   it('should emit `focus`', async () => {
-    const wrapper: any = shallowMount(VaCollapse)
+    const wrapper: any = shallowMount(VaCollapse as any)
     await wrapper.vm.onFocus()
     expect(wrapper.emitted().focus.length).toBe(1)
   })
 
   it('should be triggered on mousedown', async () => {
-    const wrapper: any = shallowMount(VaCollapse)
+    const wrapper: any = shallowMount(VaCollapse as any)
     const collapseHeader = wrapper.find('.va-collapse__header')
 
     await collapseHeader.trigger('mousedown')

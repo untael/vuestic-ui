@@ -41,7 +41,7 @@ export default class VaMediumEditor extends Vue {
   readonly editorOptions!: object
 
   initEditor () {
-    this.editor = new MediumEditor(this.$el, this.editorOptions)
+    this.editor = new MediumEditor((this.$el as HTMLElement), this.editorOptions)
     this.$emit('initialized', this.editor)
   }
 

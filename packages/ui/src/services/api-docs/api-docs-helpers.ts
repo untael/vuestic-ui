@@ -20,7 +20,7 @@ import {
 
 // Warn handler will complain, so we shut warns down
 // TODO Might be not ideal solution as we lose validation for potentially useful case.
-Vue.config.warnHandler = noop
+// Vue.config.warnHandler = noop
 
 /**
  * @param componentProp vue prop options.
@@ -85,7 +85,7 @@ export const mergeInDefaults = (base: ManualApiOptions, defaults: ManualApiOptio
 }
 
 export const getApiTableData = (
-  componentOptions: ComponentOptions<Vue>,
+  componentOptions: ComponentOptions<any>,
   manualApiOptions: ManualApiOptions = {},
 ): ApiTableData => {
   const compiledComponentOptions = compileComponentOptions(componentOptions)
