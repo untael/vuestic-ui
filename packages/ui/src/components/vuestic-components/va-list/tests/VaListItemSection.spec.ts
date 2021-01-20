@@ -6,7 +6,7 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 describe('VaListItemSection', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaListItemSection as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaListItemSection')).toBeTruthy()
   })
 
   it('is contextable', () => {

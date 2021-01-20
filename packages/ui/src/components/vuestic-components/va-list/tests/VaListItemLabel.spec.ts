@@ -6,7 +6,7 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 describe('VaListItemLabel', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaListItemLabel as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaListItemLabel')).toBeTruthy()
   })
 
   it('is contextable', () => {

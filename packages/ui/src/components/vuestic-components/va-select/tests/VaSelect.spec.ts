@@ -9,10 +9,10 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaSelect', () => {
   // ToDO: Fix after context will work fine
-  // it('should render without an error', () => {
-  //   const wrapper: any = mount(VaSelect)
-  //   expect(wrapper.isVueInstance()).toBeTruthy()
-  // })
+  it('should render without an error', () => {
+    const wrapper: any = mount(VaSelect)
+    expect(wrapper.findComponent('VaSelect')).toBeTruthy()
+  })
 })
 
 describe('contextable mixin', () => {
@@ -88,7 +88,7 @@ describe('contextable mixin', () => {
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaSelect as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaSelect as any) as ColorThemeMixin),
     ).not.toThrow()
   })
   it('is Form Component', () => {

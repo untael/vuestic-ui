@@ -11,7 +11,7 @@ import VaAccordion from '../../va-accordion/VaAccordion.vue'
 describe('VaListItem', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaListItem as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaListItem')).toBeTruthy()
   })
   it('should be a link', () => {
     const wrapper: any =  shallowMount(VaListItem as any, {
@@ -23,13 +23,13 @@ describe('VaListItem', () => {
   })
   it('has RouterLinkMixin', () => {
     expect(() =>
-      testHasRouterLinkMixin((VaListItem as unknown) as RouterLinkMixin),
+      testHasRouterLinkMixin((VaListItem as any) as RouterLinkMixin),
     ).not.toThrow()
   })
 
   it('has KeyboardOnlyFocusMixin', () => {
     expect(() =>
-      testHasKeyboardOnlyFocusMixin((VaListItem as unknown) as KeyboardOnlyFocusMixin),
+      testHasKeyboardOnlyFocusMixin((VaListItem as any) as KeyboardOnlyFocusMixin),
     ).not.toThrow()
   })
 

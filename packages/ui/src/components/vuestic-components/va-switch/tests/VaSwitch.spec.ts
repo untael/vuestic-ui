@@ -9,7 +9,7 @@ import { testIsLoadingMixin } from '../../../vuestic-mixins/LoadingMixin/testIsL
 describe('VaSwitch', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaSwitch as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaSwitch')).toBeTruthy()
   })
   it('default', () => {
     const wrapper: any =  shallowMount(VaSwitch as any, {

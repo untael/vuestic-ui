@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import { mount, shallowMount, RouterLinkStub } from '@vue/test-utils'
 import VaButton from '../VaButton.vue'
 
@@ -10,20 +10,22 @@ import {
 import { ContextPlugin } from '../../../context-test/context-provide/ContextPlugin'
 import { testIsLoadingMixin } from '../../../vuestic-mixins/LoadingMixin/testIsLoadingMixin'
 
-// @ts-ignore
-Vue.use(ColorThemePlugin)
-// @ts-ignore
-Vue.use(ContextPlugin, {})
+// Vue.use(ColorThemePlugin)
+// Vue.use(ContextPlugin, {})
 
 describe('VaButton', () => {
   it('should render without an error', () => {
-    const wrapper: any = mount(VaButton as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    const wrapper: any = mount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
+    })
+    expect(wrapper.findComponent('VaButton')).toBeTruthy()
   })
   /* 1. Default button */
 
   it('button without defined props', () => {
-    const wrapper: any = shallowMount(VaButton as any)
+    const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
+    })
 
     expect(wrapper.find('VaButton').classes()).toContain('va-button--default')
   })
@@ -31,13 +33,16 @@ describe('VaButton', () => {
   /* 2. Button sizes */
 
   it('normal button', () => {
-    const wrapper: any = shallowMount(VaButton as any)
+    const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
+    })
 
     expect(wrapper.find('VaButton').classes()).toContain('va-button--normal')
   })
 
   it('large button', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: { size: 'large' },
     } as any)
     expect(wrapper.find('VaButton').classes()).toContain('va-button--large')
@@ -46,6 +51,7 @@ describe('VaButton', () => {
 
   it('small button', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: { size: 'small' },
     } as any)
     expect(wrapper.find('VaButton').classes()).toContain('va-button--small')
@@ -55,13 +61,16 @@ describe('VaButton', () => {
   /* 3. Button types */
 
   it('default button', () => {
-    const wrapper: any = shallowMount(VaButton as any)
+    const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
+    })
 
     expect(wrapper.find('button').exists()).toBe(true)
   })
 
   it('a button with defined href', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: {
         href: 'http://epic-spinners.epicmax.co/',
       },
@@ -71,6 +80,7 @@ describe('VaButton', () => {
 
   it('a button with defined target', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: {
         target: '_blank',
       },
@@ -80,6 +90,7 @@ describe('VaButton', () => {
 
   it('a button with defined href and target', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: {
         href: 'http://epic-spinners.epicmax.co/',
         target: '_blank',
@@ -90,6 +101,7 @@ describe('VaButton', () => {
 
   it('router-link button with defined to property', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: {
         to: '/demo',
       },
@@ -102,6 +114,7 @@ describe('VaButton', () => {
 
   it('router-link button with defined to and active class properties', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: {
         to: '/demo',
         activeClass: 'va-button--active',
@@ -117,6 +130,7 @@ describe('VaButton', () => {
 
   it('disabled button', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: { disabled: true },
     } as any)
 
@@ -128,6 +142,7 @@ describe('VaButton', () => {
 
   it('button with left icon', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: {
         icon: 'clear',
       },
@@ -138,6 +153,7 @@ describe('VaButton', () => {
 
   it('button with right icon', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: {
         iconRight: 'create',
       },
@@ -148,6 +164,7 @@ describe('VaButton', () => {
 
   it('button with both icons', () => {
     const wrapper: any = shallowMount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       propsData: {
         icon: 'clear',
         iconRight: 'create',
@@ -160,7 +177,8 @@ describe('VaButton', () => {
   })
 
   it('button public methods focus and blur should works', () => {
-    const wrapper: any = shallowMount(VaButton as any, {
+    const wrapper: any = mount(VaButton as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
       attachToDocument: true,
     } as any)
     const spaceRemover = (value: string) => {
@@ -178,7 +196,7 @@ describe('VaButton', () => {
 
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaButton as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaButton as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

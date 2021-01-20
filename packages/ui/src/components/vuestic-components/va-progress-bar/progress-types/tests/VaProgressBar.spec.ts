@@ -6,11 +6,11 @@ import VaProgressBar from '../VaProgressBar.vue'
 describe('VaProgressBar', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaProgressBar as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaProgressBar')).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaProgressBar as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaProgressBar as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

@@ -8,11 +8,11 @@ import VaSidebar from '../VaSidebar.vue'
 describe('VaSidebar', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaSidebar as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaSidebar')).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaSidebar as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaSidebar as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

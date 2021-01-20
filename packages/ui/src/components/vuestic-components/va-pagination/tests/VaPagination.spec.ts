@@ -6,12 +6,12 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaPagination', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaPagination as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaPagination')).toBeTruthy()
   })
 
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaPagination as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaPagination as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

@@ -7,14 +7,14 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaAvatar', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaAvatar as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaAvatar')).toBeTruthy()
   })
   it('has loading mixin', () => {
     expect(() => testIsLoadingMixin(VaAvatar)).not.toThrow()
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaAvatar as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaAvatar as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

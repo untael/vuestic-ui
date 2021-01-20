@@ -6,7 +6,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaChip', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaChip as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaChip')).toBeTruthy()
   })
   /* 2. Button sizes */
 
@@ -36,7 +36,7 @@ describe('VaChip', () => {
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaChip as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaChip as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

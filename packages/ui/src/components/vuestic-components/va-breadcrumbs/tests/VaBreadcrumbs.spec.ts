@@ -6,11 +6,11 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaBreadcrumbs', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaBreadcrumbs as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaBreadcrumbs')).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaBreadcrumbs as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaBreadcrumbs as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

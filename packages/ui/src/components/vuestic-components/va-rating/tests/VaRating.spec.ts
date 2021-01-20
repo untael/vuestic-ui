@@ -9,10 +9,10 @@ import { testHasColorThemeMixin } from '../../../../services/testHasColorThemeMi
 import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 describe('VaRating', () => {
-  // it('should render without an error', () => {
-  //   const wrapper: any = mount(VaRating)
-  //   expect(wrapper.isVueInstance()).toBeTruthy()
-  // })
+  it('should render without an error', () => {
+    const wrapper: any = mount(VaRating)
+    expect(wrapper.findComponent('VaRating')).toBeTruthy()
+  })
   it('default', () => {
     const wrapper: any =  shallowMount(VaRating as any)
     expect(wrapper.html()).toMatchSnapshot()
@@ -59,7 +59,7 @@ describe('VaRating', () => {
   // })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaRating as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaRating as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

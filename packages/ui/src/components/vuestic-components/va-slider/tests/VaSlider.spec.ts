@@ -7,11 +7,11 @@ import VaSlider from '../VaSlider.vue'
 describe('VaSlider', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaSlider as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaSlider')).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaSlider as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaSlider as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

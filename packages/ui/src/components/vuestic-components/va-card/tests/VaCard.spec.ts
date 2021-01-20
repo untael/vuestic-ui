@@ -8,7 +8,7 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaCard', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaCard as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaCard')).toBeTruthy()
   })
   it('is contextable', () => {
     const props = {
@@ -27,7 +27,7 @@ describe('VaCard', () => {
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaCard as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaCard as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

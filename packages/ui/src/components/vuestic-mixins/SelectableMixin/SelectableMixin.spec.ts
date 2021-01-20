@@ -5,7 +5,7 @@ import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 import { h } from 'vue'
 
 const ExampleComponent = {
-  mixins: [SelectableMixin],
+  mixins: [SelectableMixin,ColorThemeMixin],
   render () {
     return h('')
   },
@@ -46,7 +46,7 @@ describe('SelectableMixin', () => {
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((ExampleComponent as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((ExampleComponent as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

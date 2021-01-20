@@ -5,7 +5,7 @@ import VaImage from '../VaImage.vue'
 describe('VaImage', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaImage as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaImage')).toBeTruthy()
   })
   it('is contextable', () => {
     const componentProps = {

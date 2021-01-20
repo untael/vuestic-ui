@@ -18,7 +18,7 @@ describe('VaAccordion', () => {
   })
   it('has StatefulMixin', () => {
     expect(() =>
-      testHasStatefulMixin((VaAccordion as unknown) as StatefulMixin),
+      testHasStatefulMixin((VaAccordion as any) as StatefulMixin),
     ).not.toThrow()
   })
 

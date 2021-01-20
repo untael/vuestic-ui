@@ -5,11 +5,11 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaButtonDropdown', () => {
   // it('should render without an error', () => {
   //   const wrapper: any = mount(VaButtonDropdown)
-  //   expect(wrapper.isVueInstance()).toBeTruthy()
+  //   expect(wrapper.findComponent('')).toBeTruthy()
   // })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaButtonDropdown as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaButtonDropdown as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

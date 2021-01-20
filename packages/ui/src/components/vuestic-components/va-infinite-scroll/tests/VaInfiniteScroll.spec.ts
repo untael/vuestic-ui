@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import { shallowMount, mount } from '@vue/test-utils'
 
 import VaInfiniteScroll from '../VaInfiniteScroll.vue'
@@ -8,15 +8,15 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 import { ColorThemePlugin } from '../../../../services/ColorThemePlugin'
 import { ContextPlugin } from '../../../context-test/context-provide/ContextPlugin'
 
-// @ts-ignore
-Vue.use(ColorThemePlugin)
-// @ts-ignore
-Vue.use(ContextPlugin, {})
+// Vue.use(ColorThemePlugin)
+// Vue.use(ContextPlugin, {})
 
 describe('VaInfiniteScroll', () => {
   it('should render without an error', () => {
-    const wrapper: any = mount(VaInfiniteScroll as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    const wrapper: any = mount(VaInfiniteScroll as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
+    })
+    expect(wrapper.findComponent('VaInfiniteScroll')).toBeTruthy()
   })
   it('is contextable', () => {
     const props = {
@@ -31,7 +31,9 @@ describe('VaInfiniteScroll', () => {
   })
 
   it('default snapshot', () => {
-    const wrapper: any =  shallowMount(VaInfiniteScroll as any)
+    const wrapper: any = shallowMount(VaInfiniteScroll as any, {
+      global: { plugins: [ColorThemePlugin, ContextPlugin] },
+    })
     expect(wrapper.html()).toMatchSnapshot()
   })
 })

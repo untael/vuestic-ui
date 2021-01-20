@@ -6,13 +6,17 @@ import VaAlert from '../VaAlert.vue'
 
 describe('VaAlert', () => {
   it('should render without an error', () => {
-    const wrapper: any = mount(VaAlert as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    const wrapper: any = mount(VaAlert as any, {
+      global: {
+        mixins: [ColorThemeMixin as any],
+      },
+    })
+    expect(wrapper.findComponent('VaAlert')).toBeTruthy()
   })
 
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaAlert as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaAlert as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

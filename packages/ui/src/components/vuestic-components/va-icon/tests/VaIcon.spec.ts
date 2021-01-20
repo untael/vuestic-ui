@@ -6,11 +6,11 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaIcon', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaIcon as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaIcon')).toBeTruthy()
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaIcon as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaIcon as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })

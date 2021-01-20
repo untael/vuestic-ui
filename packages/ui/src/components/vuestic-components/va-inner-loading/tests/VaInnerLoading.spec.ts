@@ -7,7 +7,7 @@ import { testIsLoadingMixin } from '../../../vuestic-mixins/LoadingMixin/testIsL
 describe('VaInnerLoading', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaInnerLoading as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaInnerLoading')).toBeTruthy()
   })
 
   it('has loading mixin', () => {

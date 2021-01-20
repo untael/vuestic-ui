@@ -26,7 +26,7 @@ describe('VaModal', () => {
 
     it('has StatefulMixin', () => {
       expect(() =>
-        testHasStatefulMixin((VaModal as unknown) as StatefulMixin),
+        testHasStatefulMixin((VaModal as any) as StatefulMixin),
       ).not.toThrow()
     })
   })

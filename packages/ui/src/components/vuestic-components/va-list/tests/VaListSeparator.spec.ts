@@ -5,7 +5,7 @@ import { testIsContextableComponent } from '../../../context-test/context-provid
 describe('VaListSeparator', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaListSeparator as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaListSeparator')).toBeTruthy()
   })
 
   it('is contextable', () => {

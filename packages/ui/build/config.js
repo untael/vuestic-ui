@@ -8,12 +8,13 @@ var merge = require('webpack-merge').merge;
 var version = process.env.VERSION || require('../package.json').version;
 var isProd = process.env.NODE_ENV === 'production';
 var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-var VueLoaderPlugin = require('vue-loader/lib/plugin');
+var VueLoaderPlugin = require('vue-loader-v16').VueLoaderPlugin;
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var path = require('path');
 require('dotenv').config();
-var result = {
+var config = {
     mode: 'production',
+    devtool: 'source-map',
     entry: {
         app: './src/main.ts'
     },
@@ -129,23 +130,36 @@ var result = {
         ]
     },
     optimization: {
-        minimizer: [
-            // new TerserPlugin({
-            //   cache: true,
-            //   parallel: true,
-            //   sourceMap: true,
-            // }),
-            new OptimizeCssAssetsPlugin({
-                assetNameRegExp: /\.css$/g,
-                cssProcessor: require('cssnano'),
-                cssProcessorOptions: {
-                    discardComments: { removeAll: true },
-                    postcssZindex: false,
-                    reduceIdents: false
-                },
-                canPrint: false
-            }),
-        ]
+    //     minimizer: [
+    //       // new TerserPlugin({
+    //       //   parallel: true,
+    //       //   cache: true,
+    //       //   sourceMap: true,
+    //       //   // terserOptions: {
+    //       //     // keep_fnames: true,
+    //       //   // },
+    //       // }),
+    //       new OptimizeCssAssetsPlugin({
+    //         assetNameRegExp: /\.css$/g,
+    //         cssProcessor: require('cssnano'),
+    //         cssProcessorOptions: {
+    //           discardComments: { removeAll: true },
+    //           postcssZindex: false,
+    //           reduceIdents: false,
+    //         },
+    //         canPrint: false,
+    //       }),
+    //
+    //       //       new webpack.BannerPlugin({
+    // //         banner: `/*!
+    // // * Vuestic v${version}
+    // // * Forged by John Leider
+    // // * Released under the MIT License.
+    // // */     `,
+    // //         raw: true,
+    // //         entryOnly: true,
+    // //       }),
+    //     ],
     },
     stats: { children: false }
 };
@@ -154,5 +168,5 @@ Object.defineProperty(RegExp.prototype, 'toJSON', {
     // eslint-disable-next-line
     value: RegExp.prototype.toString
 });
-console.log('result', JSON.stringify(result, null, 2));
-module.exports = result;
+console.log('config', JSON.stringify(config, null, 2));
+module.exports = config;

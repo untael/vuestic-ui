@@ -7,7 +7,7 @@ import VaOptionList from '../VaOptionList.vue'
 describe('VaOptionList', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaOptionList as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaOptionList')).toBeTruthy()
   })
   it('is SelectableList component', () => {
     expect(() => testIsFormComponent(VaOptionList, { options: ['test'], value: 'test' })).not.toThrow()

@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 
 import { testHasStatefulMixin } from '../../../vuestic-mixins/StatefulMixin/testHasStatefulMixin'
 import { testHasColorThemeMixin } from '../../../../services/testHasColorThemeMixin'
@@ -13,22 +13,22 @@ import VaCollapse from '../VaCollapse.vue'
 describe('VaCollapse', () => {
   it('should render without an error', () => {
     // -------------- Troxubles with an icon context ------------------
-    // const wrapper: any = mount(VaCollapse)
-    // expect(wrapper.isVueInstance()).toBeTruthy()
+    const wrapper: any = mount(VaCollapse)
+    expect(wrapper.findComponent('VaCollapse')).toBeTruthy()
   })
   it('has StatefulMixin', () => {
     expect(() =>
-      testHasStatefulMixin((VaCollapse as unknown) as StatefulMixin),
+      testHasStatefulMixin((VaCollapse as any) as StatefulMixin),
     ).not.toThrow()
   })
   it('has KeyboardOnlyFocusMixin', () => {
     expect(() =>
-      testHasKeyboardOnlyFocusMixin((VaCollapse as unknown) as KeyboardOnlyFocusMixin),
+      testHasKeyboardOnlyFocusMixin((VaCollapse as any) as KeyboardOnlyFocusMixin),
     ).not.toThrow()
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaCollapse as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaCollapse as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 

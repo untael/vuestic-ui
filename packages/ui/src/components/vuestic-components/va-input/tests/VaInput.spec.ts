@@ -8,14 +8,14 @@ import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 describe('VaInput', () => {
   it('should render without an error', () => {
     const wrapper: any = mount(VaInput as any)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent('VaInput')).toBeTruthy()
   })
   it('is FormElement', () => {
     expect(() => testIsFormComponent(VaInput)).not.toThrow()
   })
   it('has ColorThemeMixin', () => {
     expect(() =>
-      testHasColorThemeMixin((VaInput as unknown) as ColorThemeMixin),
+      testHasColorThemeMixin((VaInput as any) as ColorThemeMixin),
     ).not.toThrow()
   })
 })
