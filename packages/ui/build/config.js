@@ -8,7 +8,7 @@ var merge = require('webpack-merge').merge;
 var version = process.env.VERSION || require('../package.json').version;
 var isProd = process.env.NODE_ENV === 'production';
 var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-var VueLoaderPlugin = require('vue-loader-v16').VueLoaderPlugin;
+var VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var path = require('path');
 require('dotenv').config();

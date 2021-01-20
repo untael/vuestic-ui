@@ -1,4 +1,5 @@
 import Vue, { ComponentOptions } from 'vue'
+// @ts-ignore
 import { PropOptions } from 'vue/types/options'
 // @ts-ignore
 import { getType } from './vue-src-no-flow/core/util/props'

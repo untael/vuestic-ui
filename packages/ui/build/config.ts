@@ -8,7 +8,7 @@ const { merge } = require('webpack-merge')
 const version = process.env.VERSION || require('../package.json').version
 const isProd = process.env.NODE_ENV === 'production'
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader-v16')
+const { VueLoaderPlugin } = require('vue-loader')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const path = require('path')
 
