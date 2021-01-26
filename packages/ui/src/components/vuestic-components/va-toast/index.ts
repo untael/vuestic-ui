@@ -31,7 +31,7 @@ const merge = (target: NotificationOptions | any, ...args: NotificationOptions[]
   return target
 }
 
-const createToastInstance = (options: NotificationOptions): VaToast => {
+const createToastInstance = (options: NotificationOptions): typeof VaToast => {
   const id: string = 'notification_' + seed++
   toastInstance = new NotificationConstructor({
     propsData: options,
@@ -123,7 +123,7 @@ const getToastOptions = (options: string | NotificationOptions): any => {
 }
 
 const initNotification = (options: NotificationOptions | string) => {
-  const toastInstance: VaToast = createToastInstance(getToastOptions(options))
+  const toastInstance: typeof VaToast = createToastInstance(getToastOptions(options))
   toastInstances.push(toastInstance)
   return toastInstance
 }

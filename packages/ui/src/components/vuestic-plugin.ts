@@ -71,7 +71,6 @@ import VaTreeNode from './vuestic-components/va-tree-view/VaTreeNode.vue'
 import VaTreeRoot from './vuestic-components/va-tree-view/VaTreeRoot.vue'
 import VaInputWrapper from './vuestic-components/va-input/VaInputWrapper.vue'
 
-import Toasted from './vuestic-mixins/VuesticToasted'
 import StickyScroll from './vuestic-directives/StickyScroll'
 import VaButtonDropdown
   from './vuestic-components/va-button-dropdown/VaButtonDropdown.vue'
@@ -81,7 +80,7 @@ import DropdownPopperSubplugin
 
 // @ts-ignore
 import { BusPlugin } from 'vue-epic-bus'
-import { registerVuesticObject } from './resize-events'
+// import { registerVuesticObject } from './resize-events'
 import VaColorPalette
   from './vuestic-components/va-color-palette/VaColorPalette.vue'
 import VaColorSlider
@@ -100,14 +99,13 @@ import VaOptionList
   from './vuestic-components/va-option-list/VaOptionList.vue'
 import VaInfiniteScroll
   from './vuestic-components/va-infinite-scroll/VaInfiniteScroll.vue'
-import ToastInstall from './vuestic-components/va-toast/install'
 
 import { App } from 'vue'
 
 installPlatform()
 
 export const VuesticPlugin = {
-  install (app: App) {
+  install: (app: App) => {
     [
       VaAccordion,
       VaAffix,
@@ -182,18 +180,15 @@ export const VuesticPlugin = {
       VaInfiniteScroll,
       //ToDo should be fixed to normal type
     ].forEach((component: any) => {
+      console.log('component.name', component.name)
       app.component(component.name, component)
     })
 
-    registerVuesticObject(app)
+    // registerVuesticObject(app)
 
-    app.use(BusPlugin)
+    // app.use(BusPlugin)
 
     app.use(DropdownPopperSubplugin)
-
-    app.use(ToastInstall)
-
-    app.mixin(Toasted)
 
     // @ts-ignore
     app.directive('sticky-scroll', StickyScroll)

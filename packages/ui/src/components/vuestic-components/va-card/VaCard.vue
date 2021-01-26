@@ -136,8 +136,8 @@ export default class VaCard extends Mixins(
     left: 0;
   }
 
-  >>> #{&}__title,
-  >>> #{&}__content {
+  :slotted(#{&}__title),
+  :slotted(#{&}__content) {
     padding: $card-padding;
 
     + .va-card__title,
@@ -146,7 +146,7 @@ export default class VaCard extends Mixins(
     }
   }
 
-  >>> #{&}__title {
+  :slotted(#{&}__title) {
     display: flex;
     align-items: center;
 

@@ -130,36 +130,27 @@ var config = {
         ]
     },
     optimization: {
-    //     minimizer: [
-    //       // new TerserPlugin({
-    //       //   parallel: true,
-    //       //   cache: true,
-    //       //   sourceMap: true,
-    //       //   // terserOptions: {
-    //       //     // keep_fnames: true,
-    //       //   // },
-    //       // }),
-    //       new OptimizeCssAssetsPlugin({
-    //         assetNameRegExp: /\.css$/g,
-    //         cssProcessor: require('cssnano'),
-    //         cssProcessorOptions: {
-    //           discardComments: { removeAll: true },
-    //           postcssZindex: false,
-    //           reduceIdents: false,
-    //         },
-    //         canPrint: false,
-    //       }),
-    //
-    //       //       new webpack.BannerPlugin({
-    // //         banner: `/*!
-    // // * Vuestic v${version}
-    // // * Forged by John Leider
-    // // * Released under the MIT License.
-    // // */     `,
-    // //         raw: true,
-    // //         entryOnly: true,
-    // //       }),
-    //     ],
+        minimizer: [
+            new TerserPlugin({
+                parallel: true,
+                cache: true,
+                sourceMap: true,
+                terserOptions: {
+                    keep_classnames: true,
+                    keep_fnames: true
+                }
+            }),
+            new OptimizeCssAssetsPlugin({
+                assetNameRegExp: /\.css$/g,
+                cssProcessor: require('cssnano'),
+                cssProcessorOptions: {
+                    discardComments: { removeAll: true },
+                    postcssZindex: false,
+                    reduceIdents: false
+                },
+                canPrint: false
+            }),
+        ]
     },
     stats: { children: false }
 };

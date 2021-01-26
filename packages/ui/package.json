@@ -1,6 +1,6 @@
 {
   "name": "vuestic-ui",
-  "version": "1.0.0-alpha.12",
+  "version": "1.0.0-alpha.13",
   "license": "MIT",
   "repository": "https://github.com/epicmaxco/vuestic-ui",
   "main": "dist/vuestic-ui.js",
@@ -11,7 +11,7 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve --mode book",
-    "build": "webpack --config build/config.js --progress",
+    "build": "tsc build/config.ts && webpack --config build/config.js --progress",
     "build:book": "vue-cli-service build --mode book",
     "lint": "vue-cli-service lint",
     "lint:style": "stylelint '**/*.{vue,html,css,scss}'",
