@@ -136,8 +136,8 @@ export default class VaCard extends Mixins(
     left: 0;
   }
 
-  ::v-deep #{&}__title,
-  ::v-deep #{&}__content {
+  >>> #{&}__title,
+  >>> #{&}__content {
     padding: $card-padding;
 
     + .va-card__title,
@@ -146,7 +146,7 @@ export default class VaCard extends Mixins(
     }
   }
 
-  ::v-deep #{&}__title {
+  >>> #{&}__title {
     display: flex;
     align-items: center;
 
